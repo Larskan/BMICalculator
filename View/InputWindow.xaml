@@ -1,0 +1,64 @@
+﻿<ContentControl x:Class="BMICalculator.View.InputWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BMICalculator.View"
+        mc:Ignorable="d"
+        Height="450" Width="400">
+
+    <Grid Margin="4">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+
+        <TextBlock
+            x:Name="TextBoxTitle" Text="BMI Calculator" Grid.Row="0" Grid.Column ="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" FontSize="36">
+        </TextBlock>
+
+        <TextBlock
+            x:Name="TextBlockHeight" Text="Height" Grid.Row="1" Grid.Column ="0" Grid.ColumnSpan="1" VerticalAlignment="Bottom" Margin="5" FontSize="24">
+        </TextBlock>
+
+        <TextBox
+            x:Name="TextBoxHeight" Grid.Row="1" Grid.Column ="1" FontSize="24" Margin="5" BorderThickness="0, 0, 0, 1" VerticalContentAlignment="Bottom" Text="{Binding Height}">
+        </TextBox>
+
+        <TextBlock
+            x:Name="TextBlockWeight" Text="Weight" Grid.Row="2" Grid.Column ="0" Grid.ColumnSpan="1" VerticalAlignment="Bottom" Margin="5" FontSize="24">
+        </TextBlock>
+
+        <TextBox
+            x:Name="TextBoxWeight" Grid.Row="2" Grid.Column ="1" FontSize="24" Margin="5" BorderThickness="0, 0, 0, 1" VerticalContentAlignment="Bottom" Text="{Binding Weight}">
+        </TextBox>
+
+        <Button
+            x:Name="ButtonCalculate" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2" Content="Calculate" FontSize="24" Margin="5, 7, 5, 7" Background="LightBlue"  Command="{Binding CalculateCommand}">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <TextBlock
+            x:Name="TextBlockPresentResult" Text="BMI Result" Grid.Row="4" VerticalAlignment="Center" FontSize="24" Margin="5"/>
+
+        <TextBlock
+            x:Name="TextBlockResult" Grid.Row="4" Grid.Column ="1" Grid.ColumnSpan="1" Text="{Binding Result}" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24">
+        </TextBlock>
+
+        <Slider x:Name="thisSlider" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" IsSnapToTickEnabled="True" Maximum="100" Value="{Binding Result}">
+
+        </Slider>
+
+    </Grid>
+</ContentControl>
